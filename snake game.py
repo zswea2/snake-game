@@ -6,7 +6,7 @@ import random
 pygame.init()
 #전역변수
 WHITE = (255,255,255)
-size = [400,300]
+size = [600,500]
 screen = pygame.display.set_mode(size)
 RED = (255,0,0)
 GREEN = (0,255,0)
@@ -43,16 +43,16 @@ class Snake:
         x, y = head_position
         if self.direction == 'N':
             self.positions = [(x,y-1)] + self.positions[:-1]
-            print(self.positions)
+            # print(self.positions)
         elif self.direction == 'S':
             self.positions = [(x,y+1)] + self.positions[:-1]
-            print(self.positions)
+            # print(self.positions)
         elif self.direction == 'W':
             self.positions = [(x-1,y)] + self.positions[:-1]
-            print(self.positions)
+            # print(self.positions)
         elif self.direction == 'E':
             self.positions = [(x+1,y)] + self.positions[:-1]
-            print(self.positions)
+            # print(self.positions)
 
     #사과먹었을떄 뱀 성장
     def grow(self):
@@ -100,8 +100,8 @@ def runGame():
             snake.move()
         if snake.positions[0] == apple.position:
             snake.grow()
-            apple.position = (random.randint(0,19),random.randint(0,15))
-            print("apple!:",apple.position)
+            apple.position = (random.randint(0,30),random.randint(0,25))
+            # print("apple!:",apple.position)
         #꼬리에 닿았을때 종료
         if snake.positions[0] in snake.positions[1:]:
             done = True
